@@ -1,13 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 export default function NavBar() {
   return (
     <Navbar bg="dark" variant="dark">
@@ -17,7 +10,10 @@ export default function NavBar() {
           <Link to="/">Home</Link>
         </Nav.Link>
         <Nav.Link>
-          <Link to="/about">about</Link>
+          <Link to="/food">Food</Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to="/about">About</Link>
         </Nav.Link>
         <Nav.Link>
           <Link to="/contact">Contact</Link>

@@ -1,15 +1,29 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import styled from 'styled-components';
+
+
+
+const Div = styled.div`
+  text-align: center;
+  background: #4c4f57;
+  height: 100vh;
+`;
+
+const H1 = styled.h1`
+  color: #e1f1ff;
+  font-family: fantasy;
+  font-size: 5rem;
+  &:hover {
+    color: #d9a21b;
+  }
+`;
+
 export default function Home() {
   return (
-    <Container fluid>
-      <Row>
-        <Col xs={6} md={4}></Col>
-        <Col xs={6} md={4}>
-          <h1>Home Page</h1>
-        </Col>
-        <Col xs={6} md={4}></Col>
-      </Row>
-    </Container>
+    <>
+      <Div>
+        <H1>Hello From Home Page</H1>
+      </Div>
+    </>
   );
 }
