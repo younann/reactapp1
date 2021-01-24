@@ -22,6 +22,10 @@ const P = styled.p`
   font-size: 25px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 `;
+const H3 = styled.h3`
+  color: #d9a21b;
+  margin: 1rem;
+`;
 
 export default function Food() {
   let url =
@@ -45,7 +49,7 @@ export default function Food() {
           alt={recipe.hits[rand].recipe.label}
         />
         <Div>
-          <h3>IngredientLines</h3>
+          <H3>Ingredients</H3>
           {recipe.hits[rand].recipe.ingredientLines.map((txt) => (
             <P>{txt}</P>
           ))}
