@@ -4,13 +4,10 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 export default function NavBar() {
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+      <Navbar.Brand href="/">Recipes Fantasy</Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link>
           <Link to="/">Home</Link>
-        </Nav.Link>
-        <Nav.Link>
-          <Link to="/food">Food</Link>
         </Nav.Link>
         <Nav.Link>
           <Link to="/about">About</Link>

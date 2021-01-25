@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, InputGroup, FormControl } from 'react-bootstrap';
 import styled from 'styled-components';
 import Food from './Food';
 import { Link } from 'react-router-dom';
@@ -27,7 +27,7 @@ const P = styled.p`
 `;
 
 export default function Home() {
-  const recipesTypes = ['meat', 'chicken', 'fish', 'salmon', 'touffo'];
+  const recipesTypes = ['meat', 'chicken', 'fish', 'salmon', 'tofu'];
   return (
     <>
       <Div>
@@ -56,7 +56,12 @@ export default function Home() {
                   ingrediants
                 </Card.Text>
                 <Button variant="primary">
-                  <Link to={`/food/${name}`}>View</Link>
+                  <Link
+                    to={`/food/${name}`}
+                    style={{ textDecoration: 'none', color: 'white' }}
+                  >
+                    View
+                  </Link>
                 </Button>
               </Card.Body>
             </Card>

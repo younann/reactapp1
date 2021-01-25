@@ -32,6 +32,7 @@ const H3 = styled.h3`
 
 export default function Food() {
   const { id } = useParams();
+  console.log(id);
   let url = `https://api.edamam.com/search?q=${id}&app_id=f863f824&app_key=6da60588219e01d898750757415feb3e&from=0&to=100`;
   const [recipe, setRecipe] = useState(null);
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function Food() {
   var max = 100;
   var rand = Math.floor(min + Math.random() * (max - min));
 
-  if (recipe) {
+  if (recipe || id === null) {
     return (
       <Div>
         <H1>{recipe.hits[rand].recipe.label}</H1>
