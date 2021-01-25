@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { ListGroup, Spinner } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Div = styled.div`
   text-align: center;
@@ -28,8 +31,8 @@ const H3 = styled.h3`
 `;
 
 export default function Food() {
-  let url =
-    'https://api.edamam.com/search?q=chicken&app_id=f863f824&app_key=6da60588219e01d898750757415feb3e&from=0&to=10';
+  const { id } = useParams();
+  let url = `https://api.edamam.com/search?q=${id}&app_id=f863f824&app_key=6da60588219e01d898750757415feb3e&from=0&to=100`;
   const [recipe, setRecipe] = useState(null);
   useEffect(() => {
     axios.get(url).then((response) => {
@@ -37,9 +40,9 @@ export default function Food() {
     });
   }, [url]);
   var min = 1;
-  var max = 10;
+  var max = 100;
   var rand = Math.floor(min + Math.random() * (max - min));
-  console.log(rand);
+
   if (recipe) {
     return (
       <Div>
@@ -50,16 +53,27 @@ export default function Food() {
         />
         <Div>
           <H3>Ingredients</H3>
-          {recipe.hits[rand].recipe.ingredientLines.map((txt) => (
-            <P>{txt}</P>
-          ))}
+
+          <ListGroup variant="">
+            {recipe.hits[rand].recipe.ingredientLines.map((txt) => (
+              <ListGroup.Item>{txt}</ListGroup.Item>
+            ))}
+          </ListGroup>
+          <Button
+            onClick={() => {
+              window.location.reload(false);
+            }}
+          >
+            New Recipe
+          </Button>
         </Div>
       </Div>
     );
   } else {
     return (
       <Div>
-        <H1>Food Page</H1>
+        <H1>Loading</H1>
+        <Spinner animation="border" variant="secondary" size="sm" />
       </Div>
     );
   }
